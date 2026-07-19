@@ -1,0 +1,37 @@
+[package]
+name = "FamilyTrust"
+version = "0.1.0"
+authors = ["Eccentrichealerbuilds <healercpp@gmail.com>"]
+edition = "2024"
+
+[dependencies]
+alloy = { version = "2.2.0", features = ["reqwest", "reqwest-native-tls"] }
+anyhow = "1.0.103"
+dioxus = { version = "0.7.1", features = ["router"] }
+dioxus-icons = "0.1.0"
+eyre = "0.6.12"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+tokio = { version = "1.53.0" }
+reqwest = { version = "0.13.4", default-features = false, features = [
+    "native-tls-vendored",
+    "json",
+] }
+gloo-timers = { version = "0.4.0", features = ["futures"] }
+chrono = "0.4.45"
+
+[target.'cfg(target_os = "android")'.dependencies]
+jni = "0.21.1"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.2.17", features = ["js"] }
+
+
+[features]
+default = ["mobile"]
+
+web = ["dioxus/web"]
+
+desktop = ["dioxus/desktop"]
+
+mobile = ["dioxus/mobile"]
