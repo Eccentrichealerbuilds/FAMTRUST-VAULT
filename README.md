@@ -47,7 +47,6 @@ dx serve --android --target aarch64-linux-android --device
 
 Private keys never leave the device and never touch a remote server. FamTrust Vault uses Android's `getFilesDir()` — the app's private internal storage directory — to persist imported wallet keys as a local JSON file. This directory is sandboxed by Android per-app: it's not accessible to other apps, not exposed on external/shared storage, and gets wiped automatically on uninstall. Keys are read/written directly through JNI calls into the Android activity, so there's no cloud sync, no third-party key management service, and no attack surface beyond the device itself.
 
-Requires an `.env` with your `rpc_url` set to a Monad Testnet RPC endpoint.
 
 ## What's Next
 
