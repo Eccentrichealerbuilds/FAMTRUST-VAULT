@@ -40,7 +40,7 @@ Core mechanics:
 ```bash
 git clone <repo-url>
 cd famtrust-vault
-dx serve
+dx serve --android --target aarch64-linux-android --device
 ```
 
 ## Security
